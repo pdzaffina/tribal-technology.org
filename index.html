@@ -1,1 +1,563 @@
-<h1>Under Construction</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Community & Nonprofit · Tribal Technology</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --bg:           #0d0c09;
+      --bg-2:         #13120e;
+      --bg-card:      #181612;
+      --bg-card-hover:#1e1b14;
+      --border:       #2a2620;
+      --border-light: #353028;
+      --gold:         #c8922a;
+      --gold-light:   #e0ac52;
+      --gold-muted:   #6b4e1a;
+      --text:         #e8e0d0;
+      --text-muted:   #8a8070;
+      --text-dim:     #4a4438;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 300;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image:
+        radial-gradient(ellipse 70% 50% at 65% 15%, rgba(200,146,42,0.04) 0%, transparent 60%),
+        radial-gradient(ellipse 50% 60% at 15% 80%, rgba(74,124,89,0.03) 0%, transparent 60%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    body::after {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='52' viewBox='0 0 60 52'%3E%3Cpath d='M15 0 L45 0 L60 26 L45 52 L15 52 L0 26Z' fill='none' stroke='%23201e18' stroke-width='0.5'/%3E%3C/svg%3E");
+      background-size: 60px 52px;
+      pointer-events: none;
+      opacity: 0.5;
+      z-index: 0;
+    }
+
+    /* NAV */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      background: rgba(13,12,9,0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 2rem;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-brand {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      color: var(--text);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .nav-brand .hex { color: var(--gold); }
+
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.82rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--gold-light); }
+    .nav-links a.active { color: var(--gold); }
+
+    .nav-cta {
+      background: transparent;
+      border: 1px solid var(--gold-muted);
+      color: var(--gold);
+      padding: 0.4rem 1rem;
+      border-radius: 2px;
+      font-size: 0.78rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      text-decoration: none;
+      transition: background 0.2s;
+    }
+    .nav-cta:hover { background: rgba(200,146,42,0.08); }
+
+    /* LAYOUT */
+    .container {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* HERO */
+    .hero {
+      padding: 11rem 0 7rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .eyebrow {
+      display: inline-block;
+      font-size: 0.72rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--gold);
+      font-weight: 400;
+      margin-bottom: 2rem;
+      padding: 0.28rem 0.7rem;
+      border: 1px solid var(--gold-muted);
+      border-radius: 2px;
+    }
+
+    .hero h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.8rem, 6vw, 5rem);
+      font-weight: 500;
+      line-height: 1.1;
+      color: var(--text);
+      max-width: 680px;
+      margin-bottom: 1.5rem;
+    }
+    .hero h1 em { font-style: italic; color: var(--gold-light); }
+
+    .hero-desc {
+      font-size: 1rem;
+      color: var(--text-muted);
+      max-width: 500px;
+      line-height: 1.8;
+    }
+
+    /* SECTIONS */
+    .section { padding: 6rem 0; }
+    .section + .section { border-top: 1px solid var(--border); }
+
+    .section-head { margin-bottom: 3rem; }
+    .section-head .label {
+      font-size: 0.7rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+      display: block;
+      margin-bottom: 0.75rem;
+    }
+    .section-head h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.7rem, 3.5vw, 2.6rem);
+      font-weight: 500;
+      line-height: 1.15;
+      color: var(--text);
+    }
+    .section-head h2 em { font-style: italic; color: var(--gold-light); }
+    .section-head p {
+      font-size: 0.93rem;
+      color: var(--text-muted);
+      max-width: 500px;
+      line-height: 1.8;
+      margin-top: 0.75rem;
+    }
+
+    /* HONEST NOTE */
+    .honest-note {
+      background: var(--bg-2);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding: 4rem 0;
+    }
+    .honest-inner {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 4rem;
+      align-items: start;
+    }
+    .honest-inner .label {
+      font-size: 0.7rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+    .honest-inner .hed {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.4rem;
+      font-weight: 500;
+      color: var(--text);
+    }
+    .honest-body p {
+      font-size: 0.92rem;
+      color: var(--text-muted);
+      line-height: 1.85;
+    }
+    .honest-body p + p { margin-top: 1rem; }
+
+    /* RESOURCE CARDS */
+    .resource-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+    }
+
+    .resource-card {
+      background: var(--bg-card);
+      padding: 2.25rem;
+      display: flex;
+      flex-direction: column;
+      transition: background 0.2s;
+      position: relative;
+    }
+    .resource-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: transparent;
+      transition: background 0.3s;
+    }
+    .resource-card:hover { background: var(--bg-card-hover); }
+    .resource-card:hover::before { background: var(--gold); }
+
+    .resource-type {
+      font-size: 0.68rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+      margin-bottom: 1.25rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .resource-type::before {
+      content: '';
+      display: inline-block;
+      width: 14px; height: 1px;
+      background: var(--text-dim);
+    }
+
+    .resource-card h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.25rem;
+      font-weight: 500;
+      color: var(--text);
+      line-height: 1.3;
+      margin-bottom: 0.75rem;
+    }
+
+    .resource-card p {
+      font-size: 0.86rem;
+      color: var(--text-muted);
+      line-height: 1.75;
+      flex: 1;
+      margin-bottom: 1.75rem;
+    }
+
+    .resource-link {
+      font-size: 0.76rem;
+      color: var(--gold);
+      text-decoration: none;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      transition: gap 0.2s;
+      margin-top: auto;
+    }
+    .resource-link:hover { gap: 0.65rem; }
+
+    /* CONSULT */
+    .consult-box {
+      background: var(--bg-card);
+      border: 1px solid var(--border-light);
+      padding: 4rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .consult-box::after {
+      content: '⬡';
+      position: absolute;
+      right: -2rem; bottom: -3.5rem;
+      font-size: 16rem;
+      color: rgba(200,146,42,0.025);
+      line-height: 1;
+      pointer-events: none;
+    }
+    .consult-box .section-head { margin-bottom: 2.5rem; }
+
+    .consult-form {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      max-width: 580px;
+    }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .form-group { display: flex; flex-direction: column; gap: 0.4rem; }
+    .form-group label {
+      font-size: 0.72rem;
+      color: var(--text-muted);
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+    }
+    .form-group input,
+    .form-group textarea {
+      background: var(--bg);
+      border: 1px solid var(--border-light);
+      color: var(--text);
+      padding: 0.65rem 1rem;
+      border-radius: 2px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 300;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    .form-group input:focus,
+    .form-group textarea:focus { border-color: var(--gold-muted); }
+    .form-group textarea { resize: vertical; min-height: 120px; }
+
+    .btn-submit {
+      background: var(--gold);
+      color: #0d0c09;
+      border: none;
+      padding: 0.85rem 2rem;
+      border-radius: 2px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.83rem;
+      font-weight: 500;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.15s;
+      align-self: flex-start;
+    }
+    .btn-submit:hover { background: var(--gold-light); transform: translateY(-1px); }
+
+    .form-note {
+      font-size: 0.75rem;
+      color: var(--text-dim);
+      margin-top: 0.25rem;
+    }
+
+    /* FOOTER */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 2.5rem 0;
+    }
+    .footer-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1.25rem;
+    }
+    .footer-brand {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+      gap: 0.45rem;
+      text-decoration: none;
+    }
+    .footer-brand .hex { color: var(--gold); }
+    .footer-links { display: flex; gap: 2rem; list-style: none; }
+    .footer-links a {
+      font-size: 0.76rem;
+      color: var(--text-dim);
+      text-decoration: none;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+    .footer-links a:hover { color: var(--text-muted); }
+    .footer-copy { font-size: 0.73rem; color: var(--text-dim); }
+
+    /* ANIMATIONS */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(18px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .hero .eyebrow { animation: fadeUp 0.6s ease both; }
+    .hero h1       { animation: fadeUp 0.6s 0.1s ease both; }
+    .hero-desc     { animation: fadeUp 0.6s 0.2s ease both; }
+
+    /* RESPONSIVE */
+    @media (max-width: 860px) {
+      .nav-links { display: none; }
+      .container { padding: 0 1.25rem; }
+      .resource-grid { grid-template-columns: 1fr; }
+      .honest-inner { grid-template-columns: 1fr; gap: 2rem; }
+      .form-row { grid-template-columns: 1fr; }
+      .consult-box { padding: 2.5rem 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="https://tribal-technology.com" class="nav-brand">
+      <span class="hex">⬡</span> TribalTechnology
+    </a>
+    <ul class="nav-links">
+      <li><a href="https://tribal-technology.com/#services">Services</a></li>
+      <li><a href="https://tribal-technology.com/#about">About</a></li>
+      <li><a href="https://tribal-technology.com/resources.html">Resources</a></li>
+      <li><a href="#" class="active">Community</a></li>
+      <li><a href="https://tribal-technology.com/#contact">Contact</a></li>
+    </ul>
+    <a href="https://ai-assessment.tribal-technology.com" class="nav-cta">AI Assessment →</a>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container">
+      <span class="eyebrow">⬡ Community &amp; Nonprofit</span>
+      <h1>Free tools.<br><em>Honest conversations.</em></h1>
+      <p class="hero-desc">
+        We make our core resources freely available to any tribal government or Native-led organization.
+        If you need to talk through a technology decision, we'll make time — no sales process, no obligation.
+      </p>
+    </div>
+  </section>
+
+  <!-- HONEST NOTE -->
+  <div class="honest-note">
+    <div class="container">
+      <div class="honest-inner">
+        <div>
+          <span class="label">A straight answer</span>
+          <div class="hed">What this is —<br>and isn't.</div>
+        </div>
+        <div class="honest-body">
+          <p>We are a small practice. We can't offer free full engagements, grant programs, or subsidized retainers at scale. What we can offer is real: free resources you can use today, and a genuine willingness to talk with nations and nonprofits who are trying to make sound technology decisions without someone trying to sell them something.</p>
+          <p>If a conversation leads to paid work, great. If it doesn't, that's fine too. The resources are yours regardless.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- RESOURCES -->
+  <section class="section">
+    <div class="container">
+      <div class="section-head">
+        <span class="label">Free Resources</span>
+        <h2>Tools you can use <em>today.</em></h2>
+        <p>Built for tribal governments and Native nonprofits. Free to download, adapt, and keep — no account required.</p>
+      </div>
+
+      <div class="resource-grid">
+        <div class="resource-card">
+          <div class="resource-type">Template · PDF</div>
+          <h3>RFP Addendum: Data &amp; AI Protection</h3>
+          <p>18 questions across five protection domains — data ownership, AI transparency, third-party sharing, security, and sovereignty. Attach to any technology RFP and require vendors to respond in writing.</p>
+          <a href="https://tribal-technology.com/pdfs/rfp-addendum.pdf" class="resource-link">↓ Download Free PDF</a>
+        </div>
+
+        <div class="resource-card">
+          <div class="resource-type">Briefing · PDF</div>
+          <h3>AI Readiness Executive Briefing</h3>
+          <p>A two-page briefing for Tribal Council and leadership — no technical background required. Five readiness domains, priority action matrix, and sovereign guiding principles.</p>
+          <a href="https://tribal-technology.com/pdfs/tribal-ai-briefing.pdf" class="resource-link">↓ Download Free PDF</a>
+        </div>
+
+        <div class="resource-card">
+          <div class="resource-type">Interactive Tool</div>
+          <h3>Tribal AI Governance Assessment</h3>
+          <p>Score your nation across five sovereign dimensions in under 10 minutes. Get a prioritized action plan — no account, no email, nothing to sign up for.</p>
+          <a href="https://ai-assessment.tribal-technology.com" class="resource-link">Start Assessment →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONSULT -->
+  <section class="section" id="consult">
+    <div class="container">
+      <div class="consult-box">
+        <div class="section-head">
+          <span class="label">Free Consultation</span>
+          <h2>Have a technology question?<br><em>Let's talk.</em></h2>
+          <p>Bring a vendor contract, a technology decision, an AI question, or a situation you're not sure how to navigate. One conversation, no sales pitch.</p>
+        </div>
+
+        <form class="consult-form" action="mailto:community@tribal-technology.com" method="post" enctype="text/plain">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="fname">First Name</label>
+              <input type="text" id="fname" name="first_name" />
+            </div>
+            <div class="form-group">
+              <label for="lname">Last Name</label>
+              <input type="text" id="lname" name="last_name" />
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="org">Nation / Organization</label>
+            <input type="text" id="org" name="organization" />
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" />
+          </div>
+          <div class="form-group">
+            <label for="message">What's on your mind?</label>
+            <textarea id="message" name="message" placeholder="Describe the decision or situation you're navigating. No wrong answers."></textarea>
+          </div>
+          <button type="submit" class="btn-submit">Send Request</button>
+          <p class="form-note">We respond within a few business days. All conversations are confidential.</p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <div class="footer-inner">
+        <a href="https://tribal-technology.com" class="footer-brand">
+          <span class="hex">⬡</span> TribalTechnology
+        </a>
+        <ul class="footer-links">
+          <li><a href="https://tribal-technology.com/#services">Services</a></li>
+          <li><a href="https://tribal-technology.com/resources.html">Resources</a></li>
+          <li><a href="https://ai-assessment.tribal-technology.com">Assessment</a></li>
+          <li><a href="https://tribal-technology.com/#contact">Contact</a></li>
+        </ul>
+        <p class="footer-copy">© 2026 Tribal Technology · CARE Principles · OCAP® · UNDRIP</p>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
