@@ -3,19 +3,11 @@
 <body>
 <header class="site-header"><div class="brand"><div class="brand-mark" aria-hidden="true">✦</div><div><strong>Copilot First Steps</strong><small>PROMPT LIBRARY</small></div></div><p class="header-tagline">Helpful prompts for everyday work<br>Ready to copy, customize, and try</p><a class="library-home" href="index.html">← Back to Use Cases</a></header>
 <main class="container library-main">
-<section class="library-hero"><div><p class="eyebrow">YOUR EVERYDAY AI TOOLKIT</p><h1>Prompt Library</h1><p>Find a useful starting point, change the details to fit your work, and copy it into Copilot Chat.</p><div class="library-hero-actions"><a class="primary library-action" href="https://copilot.cloud.microsoft" target="_blank" rel="noopener noreferrer">Open Copilot ↗</a><a class="outline library-action" href="#how-to-edit">How to add prompts</a></div></div><div class="library-hero-mark" aria-hidden="true">✦<span>Ask better.<br>Work easier.</span></div></section>
+<section class="library-hero"><div><p class="eyebrow">YOUR EVERYDAY AI TOOLKIT</p><h1>Prompt Library</h1><p>Find a useful starting point, change the details to fit your work, and copy it into Copilot Chat.</p><div class="library-hero-actions"><a class="primary library-action" href="https://copilot.cloud.microsoft" target="_blank" rel="noopener noreferrer">Open Copilot ↗</a></div></div><div class="library-hero-mark" aria-hidden="true">✦<span>Ask better.<br>Work easier.</span></div></section>
 <section class="library-tools" aria-label="Find prompts"><label class="library-search-label" for="promptSearch">Search prompts<input id="promptSearch" type="search" placeholder="Try email, meeting notes, project..." autocomplete="off"></label><label class="library-filter-label" for="categoryFilter">Category<select id="categoryFilter"><option value="all">All categories</option></select></label><span class="library-count" id="resultCount" aria-live="polite"></span></section>
 <div class="library-section-head"><h2>Ready-to-use prompts</h2><p>Select <strong>Customize</strong> to change the text before copying.</p></div>
 <section id="promptGrid" class="prompt-grid" aria-label="Prompt cards"></section>
 <p id="emptyState" class="library-empty" hidden>No matching prompts. Try another search or category.</p>
-<section id="how-to-edit" class="library-help"><div><p class="eyebrow">MAKE IT YOUR OWN</p><h2>Add or update prompts in one file</h2><p>Open <code>prompts-data.js</code> in a text editor. Each prompt is a simple JavaScript object. Copy one, give it a unique <code>id</code>, then change its title, category, description, tags, and prompt. Save the file and refresh this page.</p><p class="small-note">Edits made with Customize are for the current session; they do not change the source file. For permanent changes, edit <code>prompts-data.js</code>. If your organization hosts this site, republish the updated file.</p></div><pre><code>{
-  id: 'new-prompt',
-  title: 'My new prompt',
-  category: 'Everyday Work',
-  description: 'What it helps with.',
-  tags: ['beginner'],
-  prompt: 'Help me with [YOUR TASK]...'
-}</code></pre></section>
 <footer>Copilot First Steps · Use approved work information only · Review Copilot responses before using them.</footer>
 </main>
 <dialog id="editorDialog" class="prompt-dialog" aria-labelledby="editorTitle"><form method="dialog" id="editorForm"><div class="dialog-head"><div><p class="eyebrow">CUSTOMIZE BEFORE COPYING</p><h2 id="editorTitle">Edit prompt</h2></div><button class="dialog-close" value="cancel" aria-label="Close">×</button></div><p id="editorDescription"></p><label for="editorText">Your prompt</label><textarea id="editorText" rows="11" spellcheck="true"></textarea><p class="small-note">Replace text in [BRACKETS] with your own information. Do not paste sensitive data unless your organization permits it.</p><div class="dialog-actions"><button type="button" class="outline" id="resetEditor">Reset</button><button type="button" class="primary" id="copyEdited">Copy prompt</button></div><p id="editorStatus" role="status" class="copy-status"></p></form></dialog>
