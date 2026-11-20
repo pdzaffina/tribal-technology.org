@@ -27,3 +27,9 @@ No backend or account is required. Copying may require HTTPS or localhost in som
 ## Mobile dictation use case
 
 The eighth use case teaches approved mobile app installation and dictating a personal note. It distinguishes dictation from full meeting recording/transcription, which may not be available without additional licensing.
+
+## Content Library / custom pages
+
+Open `content-library.html` to select the use cases you want in a custom guide and give it a title. Click **Create custom page**. The generated `custom-course.html` displays only those selected use cases with their original explanations, prompts, and replaceable GIF. The share link encodes the selection and title in the URL, so recipients see the same course without an account or backend. Share links require publishing the whole folder to an accessible web host; a `file://` link on your computer will not work for other people. Print / Save as PDF is also available.
+
+The content library and custom page read the same `use-cases-data.js` as the main course. Edit that file to maintain use cases in one place.
