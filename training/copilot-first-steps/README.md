@@ -1,23 +1,19 @@
-# Copilot First Steps
+# Copilot First Steps — Use Case Guide
 
-A beginner-friendly, local-first, seven-lesson guided learning website for basic Microsoft Copilot Chat users.
+Open `index.html` in a modern browser. This static website uses no server, build tools, or API keys. It includes seven detailed use cases, copyable sample prompts, a model-selection cat GIF placeholder, and local progress tracking. No quizzes.
 
-## Run
+## Replace the cat GIF
 
-Open `index.html` in a modern browser. No installation, build step, backend, or API key is required. For local hosting, run `python3 -m http.server 8000` in this folder, then visit `http://localhost:8000`.
+Replace `assets/model-selector-cat.gif` with your own GIF **using exactly the same filename**. The page will show it in the First Steps use case. The GIF is intentionally an easily replaceable placeholder.
 
-## Included
+## Scope and licensing
 
-- Seven interactive lessons, including mobile installation and voice dictation guidance.
-- Practice questions, copy-to-clipboard controls, links to the real Microsoft Copilot Chat, and short knowledge checks.
-- Progress and optional reflection saved in this browser's localStorage only.
-- Responsive layout, keyboard-focus styling, and large controls.
-- Exact palette: background #FAF9F6, cards #FFFFFF, text #252525, borders #E5DFDC, maroon #4A252B.
+The guide targets basic Microsoft Copilot Chat with a work account, not a paid Microsoft 365 Copilot add-on. Features including inbox search, calendar availability, Notebooks, model selection, Teams transcription, and document workflows vary by tenant, account, and license. The guide explicitly flags these limitations. Check your tenant before training users. Never share restricted data without authorization.
 
-## Important limitations
+## Styling
 
-This is a training site, **not** a Microsoft Copilot simulator or an integration with a work account. It does not access emails, files, calendars, phone microphones, or Copilot responses. Completion is learner-reported, not verified by Microsoft. Progress is per browser/device, not shared with a trainer. App names, availability, licensing, voice-input UI, and organization-specific permissions may change; IT should validate these before rollout. Dictation is not the same as meeting recording/transcription. Follow your organization's security, consent, and data-handling policies.
+Background `#FAF9F6`, cards `#FFFFFF`, text `#252525`, borders `#E5DFDC`, maroon `#4A252B`. Edit `styles.css` to change them.
 
-## Deploy
+## Hosting
 
-Host these static files on any approved internal web server or static website host. For organizational rollout, verify that `https://copilot.cloud.microsoft` is the correct work-account entry point and that mobile app installation is permitted. The `design-reference.png` file is the original visual concept and is not required at runtime.
+Upload the folder to an approved internal static web host. Progress is saved only in each browser's localStorage and is not a measure of real Copilot usage.
